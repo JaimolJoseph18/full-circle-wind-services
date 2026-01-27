@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Monitor Alert</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+      line-height: 1.5;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 550px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      padding: 24px;
+      background-color: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: #111827;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .content {
+      padding: 32px 24px;
+    }
+
+    .alert-badge {
+      display: inline-block;
+      background-color: #fee2e2;
+      color: #b91c1c;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .data-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 24px 0;
+      padding: 20px;
+      background-color: #f3f4f6;
+      border-radius: 8px;
+    }
+
+    .data-item label {
+      display: block;
+      font-size: 0.75rem;
+      color: #6b7280;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .data-item .value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .timestamp-box {
+      border-top: 1px solid #e5e7eb;
+      margin-top: 24px;
+      padding-top: 16px;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .timestamp-box strong {
+        color: #111827;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      background-color: #2563eb;
+      color: #ffffff;
+      padding: 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 24px;
+    }
+
+    .footer {
+      padding: 16px 24px;
+      background-color: #f9fafb;
+      font-size: 0.8rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Data Monitor</h1>
+    </div>
+
+    <div class="content">
+      <span class="alert-badge">Threshold Alert</span>
+      <h2 style="margin-top: 0;">Critical limit exceeded</h2>
+      <p>An endpoint has reported a value that exceeds your configured limit of <strong>90</strong>.</p>
+
+      <div class="data-grid">
+        <div class="data-item">
+          <label>Detected Value</label>
+          <div class="value" style="color: #dc2626;">$value</div>
+        </div>
+        <div class="data-item">
+          <label>Limit</label>
+          <div class="value">90</div>
+        </div>
+      </div>
+
+      <div class="timestamp-box">
+        <strong>Event Time:</strong> $timestamp
+      </div>
+
+      <a href="http://localhost:5173/" class="btn">Open Dashboard</a>
+    </div>
+
+    <div class="footer">
+      This is an automated security notification. Please do not reply to this email.
+    </div>
+  </div>
+</body>
+</html>
