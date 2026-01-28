@@ -32,10 +32,9 @@ def get_stats(db: Session = Depends(get_db)):
     )
     if not latest:
         latest = (
-            db.query(models.DataReading.value)
+            db.query(models.DataReading)
             .order_by(models.DataReading.created_at.desc())
-            .limit(1)
-            .scalar()
+            .first()
         )
 
     avg_value, min_value, max_value, threshold_exceeded_count, total_count = db.query(

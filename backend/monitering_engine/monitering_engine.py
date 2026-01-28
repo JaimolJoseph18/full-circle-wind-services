@@ -76,6 +76,7 @@ def data_monitoring_engine(session: Session = None):
             logger.info("Data successfully saved to database")
             break
         except RequestException as e:
+            session.rollback()
             logger.error(f"Exception detected: {e}")
             logger.warning(
                 f"Attempt {attempt} failed for {ENDPOINT}: {e}.Retrying in {delay} seconds..."
