@@ -100,12 +100,12 @@ async def run_schedule():
     """
     while True:
         schedule.run_pending()
-        await asyncio.sleep(5)
+        await asyncio.sleep(1)
 
 
 async def start_data_moniterig_engine():
     """
     Start the schedule in an asyncio event loop.
     """
-    schedule.every(1).seconds.do(data_monitoring_engine)
+    schedule.every(2).seconds.do(data_monitoring_engine)
     await run_schedule()
